@@ -1,21 +1,37 @@
-const Navbar = () => {
+import Contador from "./contador";
 
+const Navbar = () => {
   return (
-  <nav class="bg-gray-800 border-gray-200 dark:bg-gray-900">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <button href="#" class="flex items-center space-x-3 rtl:space-x-reverse text-white font-medium ">
-            <img src="{{asset('images/logo-unisuam.png')}}" class="h-8" title="Unisuam" alt="Unisuam"/> ACOMPANHAMENTO PROJETOS UNISUAM
+    <nav className="bg-gray-800 border-gray-200 dark:bg-gray-900">
+      <div className="flex items-center justify-between mx-auto p-4">
+        <button
+          href="#"
+          className="flex items-center space-x-3 rtl:space-x-reverse text-white font-medium"
+        >
+          <img
+            src="{{asset('images/logo-unisuam.png')}}"
+            className="h-8"
+            title="Unisuam"
+            alt="Unisuam"
+          />{" "}
+          ACOMPANHAMENTO PROJETOS UNISUAM
         </button>
 
-        <div></div>
+        <div className="flex-grow flex items-center justify-center">
+          <Contador />
+        </div>
 
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-800 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                    <a href="/"
-                       class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                       aria-current="page">STATUS PROJETOS</a>
-                </li>
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-800 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a
+                href="/"
+                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                aria-current="page"
+              >
+                STATUS PROJETOS
+              </a>
+            </li>
                 <li>
                     <button id="dropdownNavbarLinkWorkalove" data-dropdown-toggle="dropdownWorkalove"
                             class="flex items-center font-medium justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
@@ -147,8 +163,11 @@ const Navbar = () => {
                     </div>
                 </li>
             </ul>
+       
         </div>
     </div>
+
+  
 </nav>
 
   );
