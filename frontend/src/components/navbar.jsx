@@ -3,25 +3,22 @@ import Contador from "./contador";
 import logo from "../images/logo-unisuam.jpg";
 
 const Navbar = () => {
-    const [MenuHamburguerAberto, setAberto] = useState(false);
-    const [MenuWorkaloveAberto, setWorkaloveAberto] = useState(false);
-    const [MenuMoodleAberto, setMoodleAberto] = useState(false);
-    const [MenuHubspotAberto, setHubspotAberto] = useState(false);
+    const [MenuAberto, setMenuAberto] = useState(null);
 
     const toggleWorkalove = () => {
-        setWorkaloveAberto(!MenuWorkaloveAberto);
+        setMenuAberto(MenuAberto === 'workalove' ? null : 'workalove');
     };
 
     const toggleMoodle = () => {    
-        setMoodleAberto(!MenuMoodleAberto);
+        setMenuAberto(MenuAberto === 'moodle' ? null : 'moodle');
     };
     
     const toggleMenu = () => {
-        setAberto(!MenuHamburguerAberto);
+        setMenuAberto(MenuAberto === 'hamburguer' ? null : 'hamburguer');
     };
 
     const toggleHubspot = () => {
-        setHubspotAberto(!MenuHubspotAberto);
+        setMenuAberto(MenuAberto === 'hubspot' ? null : 'hubspot');
     };
 
     return (
@@ -47,14 +44,14 @@ const Navbar = () => {
                     type="button" 
                     className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
                     aria-controls="mega-menu-full" 
-                    aria-expanded={MenuHamburguerAberto}
+                    aria-expanded={MenuAberto === 'hamburguer'}
                 >
                     <span className="sr-only">Abrir Menu</span>
                     <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
                     </svg>
                 </button>
-                <div id="mega-menu-full" className={`items-center justify-between ${MenuHamburguerAberto ? "block" : "hidden"} w-full md:flex md:w-auto md:order-1`}>
+                <div id="mega-menu-full" className={`items-center justify-between ${MenuAberto === 'hamburguer' ? "block" : "hidden"} w-full md:flex md:w-auto md:order-1`}>
                     <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                         <li>
                             <a href="/" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">
@@ -62,13 +59,13 @@ const Navbar = () => {
                             </a>
                         </li>
                         <li>
-                            <button id="dropdownNavbarLinkWorkalove" className="flex items-center font-medium justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent" onClick={toggleWorkalove} aria-expanded={MenuWorkaloveAberto}>
+                            <button id="dropdownNavbarLinkWorkalove" className="flex items-center font-medium justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent" onClick={toggleWorkalove} aria-expanded={MenuAberto === 'workalove'}>
                                 WORKALOVE
                                 <svg className="w-2.5 h-2.5 ms-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                                 </svg>
                             </button>
-                            <div id="dropdownWorkalove" className={`z-10 ${MenuWorkaloveAberto ? "block" : "hidden"} font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute`}>
+                            <div id="dropdownWorkalove" className={`z-10 ${MenuAberto === 'workalove' ? "block" : "hidden"} font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute`}>
                                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownNavbarLinkWorkalove">
                                     <li>
                                         <a href="/workalove/all" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">TODOS</a>
@@ -105,13 +102,13 @@ const Navbar = () => {
                             <a href="/grupoa" className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">GRUPO A</a>
                         </li>
                         <li>
-                            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center font-medium justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent" aria-expanded={MenuMoodleAberto} onClick={toggleMoodle}>
+                            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center font-medium justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent" aria-expanded={MenuAberto === 'moodle'} onClick={toggleMoodle}>
                                 MOODLE
                                 <svg className="w-2.5 h-2.5 ms-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                                 </svg>
                             </button>
-                            <div id="dropdownNavbar" className= { ` z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${MenuMoodleAberto ? "block": "hidden"} absolute `}  >
+                            <div id="dropdownNavbar" className= { ` z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${MenuAberto === 'moodle' ? "block": "hidden"} absolute `}  >
                                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownNavbarLink">
                                     <li>
                                         <button href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Matriculas-GRA</button>
@@ -136,13 +133,13 @@ const Navbar = () => {
                             </div>
                         </li>
                         <li>
-                            <button id="dropdownNavbarLinkHubspot" data-dropdown-toggle="dropdownHubspot" className="flex items-center font-medium justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"aria-expanded={MenuHubspotAberto} onClick={toggleHubspot}>
+                            <button id="dropdownNavbarLinkHubspot" data-dropdown-toggle="dropdownHubspot" className="flex items-center font-medium justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"aria-expanded={MenuAberto === 'hubspot'} onClick={toggleHubspot}>
                                 HUBSPOT
                                 <svg className="w-2.5 h-2.5 ms-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                                 </svg>
                             </button>
-                            <div id="dropdownHubspot" className={`z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute ${MenuHubspotAberto ? "block":"hidden" } ` }>
+                            <div id="dropdownHubspot" className={`z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute ${MenuAberto === 'hubspot' ? "block":"hidden" } ` }>
                                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownNavbarLinkHubspot">
                                     <li>
                                         <a href="/hubspot/all" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">TODOS</a>
