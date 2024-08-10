@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Menu = () => {
@@ -21,13 +22,13 @@ const Menu = () => {
       {/* STATUS PROJETO*/}
 
       <li>
-        <a
-          href="/"
+        <Link
+          to="/"
           className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
           aria-current="page"
         >
           STATUS PROJETOS
-        </a>
+        </Link>
       </li>
 
       {/* WORKALOVE */}
@@ -66,71 +67,71 @@ const Menu = () => {
             aria-labelledby="dropdownNavbarLinkWorkalove"
           >
             <li>
-              <a
-                href="/workalove/all"
+              <Link
+                to="/workalove/all"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 TODOS
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/workalove/cursos"
+              <Link
+                to="/workalove/cursos"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 CURSOS
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/workalove/cursos-disciplinas"
+              <Link
+                to="/workalove/cursos-disciplinas"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 CURSO DISCIPLINAS
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="py-1">
             <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
               <li>
-                <a
-                  href="/workalove/alunos-cancelados"
+                <Link
+                  to="/workalove/alunos-cancelados"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   ALUNOS CANCELADOS
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/workalove/alunos-egressos"
+                <Link
+                  to="/workalove/alunos-egressos"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   ALUNOS EGRESSOS
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/workalove/alunos-graduacao"
+                <Link
+                  to="/workalove/alunos-graduacao"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   ALUNOS GRADUAÇÃO
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/workalove/alunos-cursos-graduacao"
+                <Link
+                  to="/workalove/alunos-cursos-graduacao"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   ALUNOS CURSOS GRADUAÇÃO
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/workalove/alunos-disciplinas-graduacao"
+                <Link
+                  to="/workalove/alunos-disciplinas-graduacao"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   ALUNOS DISCIPLINAS GRADUAÇÃO
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -138,12 +139,12 @@ const Menu = () => {
       </li>
       {/* GRUPO A */}
       <li>
-        <a
-          href="/grupoa"
+        <Link
+          to="/grupoa"
           className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
         >
           GRUPO A
-        </a>
+        </Link>
       </li>
 
       {/* MODDLE */}
@@ -184,7 +185,7 @@ const Menu = () => {
           >
             <li>
               <button
-                href="#"
+                to="#"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Matriculas-GRA
@@ -192,7 +193,7 @@ const Menu = () => {
             </li>
             <li>
               <button
-                href="#"
+                to="#"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Disciplinas-GRA
@@ -200,7 +201,7 @@ const Menu = () => {
             </li>
             <li>
               <button
-                href="#"
+                to="#"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Agendamentos-GRA
@@ -208,7 +209,7 @@ const Menu = () => {
             </li>
             <li>
               <button
-                href="#"
+                to="#"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Grupos-GRA
@@ -216,7 +217,7 @@ const Menu = () => {
             </li>
             <li>
               <button
-                href="#"
+                to="#"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Notas-GRA
@@ -224,7 +225,7 @@ const Menu = () => {
             </li>
             <li>
               <button
-                href="#"
+                to="#"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 Usuários-GRA
@@ -272,28 +273,28 @@ const Menu = () => {
             aria-labelledby="dropdownNavbarLinkHubspot"
           >
             <li>
-              <a
-                href="/hubspot/all"
+              <Link
+                to="/hubspot/all"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 TODOS
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/hubspot/contatos"
+              <Link
+                to="/hubspot/contatos"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 CONTATOS
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/hubspot/negocios"
+              <Link
+                to="/hubspot/negocios"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 NEGOCIOS
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
