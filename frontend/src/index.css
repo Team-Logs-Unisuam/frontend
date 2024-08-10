@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* CORES PADRÃO */ 
+
+:root {
+    --header:#202937;
+    --zerado: #E6E6E6;
+    --maisdemil: #FFDCE0;
+    --umA50: #C5D9F5;
+    --cinquentaA500: #FFFCB5;
+    --quinhentosAmil: #d3b9fb;
+    --bordazerado:#A7A7A7;
+    --bordaumA50: #4D7BE8;
+    --borda50a500: #fff402;
+    --borda500a1000: #9402ff;
+    --bordamaisdemil: #DF302F;
+    --integracoesWorkalove: #24325D;
+  }
+
+  .zerado {
+    border-bottom: var(--bordazerado);
+    background: var(--zerado);
+    border-style: solid;
+  }
+  
+  .maisdemil {
+    border-bottom: var(--bordamaisdemil);
+    background: var(--maisdemil) ;
+    border-style: solid;
+  }
+  
+  .umA50 {
+    border-bottom: var(--bordaumA50);
+    background: var(--umA50);
+    border-style: solid;
+  }
+  
+  .cinquentaA500 {
+    border-bottom: var(--borda50a500);
+    background: var(--cinquentaA500);
+    border-style: solid;
+  }
+  
+  .quinhentosAmil {
+    border-bottom: var(--borda500a1000);
+    background: var(--quinhentosAmil);
+    border-style: solid;
+  }
+ 
+  .integracoesWorkalove {
+    color: var(--integracoesWorkalove);
+  }
+  .header{
+    background: var(--header);
+  }
+
+  

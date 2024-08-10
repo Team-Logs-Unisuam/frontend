@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './navbar';
+import Navbar from './Navbar';
 
 const Header = () => {
 
   return (
-    <header className='bg-[#202937] text-white'>
+    <header className=' text-white'>
 
      <Navbar />
     </header>
