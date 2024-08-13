@@ -13,13 +13,13 @@ const pegarCor = (quantidade) => {
     }
 };
 
-const Dados = ({ tipo, quantidade }) => {
+const Dados = ({ subtitulo, quantidade }) => {
     const cor = pegarCor(quantidade);
 
     return (
         <div className={`${cor} rounded shadow-md`}>
             <h2 className="text-center text-gray-500 font-bold">
-                {tipo}
+                {subtitulo}
             </h2>
             <p className="text-center font-extrabold">
                 {quantidade}

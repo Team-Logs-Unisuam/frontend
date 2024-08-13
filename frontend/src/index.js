@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
-import Corpo from './components/Dashboard';
+import Rotas from './routes/routes';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
    <BrowserRouter>
     <Header>
     </Header>
-    <Corpo/>
+    <Rotas/>
    
     </BrowserRouter>
   );
