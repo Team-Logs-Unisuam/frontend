@@ -17,7 +17,7 @@ const Dados = ({ subtitulo, quantidade }) => {
     const cor = pegarCor(quantidade);
 
     return (
-        <div className={`${cor} rounded shadow-md`}>
+        <div className={`${cor} rounded shadow-md py-4 mx-1`}>
             <h2 className="text-center text-gray-500 font-bold">
                 {subtitulo}
             </h2>
