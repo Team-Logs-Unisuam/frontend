@@ -5,7 +5,6 @@ const Menu = ({ dados }) => {
   const [menuAberto, setMenuAberto] = useState(null);
 
   if (!Array.isArray(dados)) {
-    console.error("A prop `dados` deve ser um array.");
     return null;
   }
 

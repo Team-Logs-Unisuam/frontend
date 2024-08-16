@@ -27,6 +27,16 @@ const Principal = ({dadosDashboard}) => {
             createdAt: "2024-08-12 13:07:46",
             response: '[{"name":"Keila Cristina Rodrigues dos Santos" ... }',
           },
+          {
+            action: "GRA-ALUNO-DISCIPLINES",
+            createdAt: "2024-08-12 13:07:46",
+            response: '[{"name":"Keila Cristina Rodrigues dos Santos" ... }',
+          },
+          {
+            action: "GRA-ALUNO-DISCIPLINES",
+            createdAt: "2024-08-12 13:07:46",
+            response: '[{"name":"Keila Cristina Rodrigues dos Santos","name":"Keila Cristina Rodrigues dos Santos","name":"Keila Cristina Rodrigues dos Santos","name":"Keila Cristina Rodrigues dos Santos","name":"Keila Cristina Rodrigues dos Santos","name":"Keila Cristina Rodrigues dos Santos","name":"Keila Cristina Rodrigues dos Santos", }',
+          },
         ]}
       />
     </>
