@@ -2,6 +2,7 @@ import { useState } from "react";
 import Contador from "./Contador";
 import logo from "../images/logo-unisuam.jpg";
 import Menu from "./Menu";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [MenuAberto, setMenuAberto] = useState(null);
@@ -13,12 +14,12 @@ const Navbar = () => {
   return (
     <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
       <div className="flex flex-wrap justify-between items-center mx-auto p-4">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+       <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={logo} className="h-8" title="Unisuam" alt="Unisuam" />
           <span className="hidden 2xl:block">
             ACOMPANHAMENTO PROJETOS UNISUAM
           </span>
-        </a>
+        </Link>
         <div className="flex-grow flex items-center justify-center">
           <Contador />
         </div>
@@ -56,7 +57,7 @@ const Navbar = () => {
           <ul className="flex flex-col mt-4 font-medium 2xl:flex-row 2xl:mt-0 2xl:space-x-8 rtl:space-x-reverse">
             <Menu
               dados={[
-                { titulo: "STATUS PROJETOS", url: "/" },
+                { titulo: "STATUS PROJETOS", url: "/status" },
                 {
                   titulo: "WORKALOVE",
                   submenu: {
@@ -113,8 +114,8 @@ const Navbar = () => {
                     ],
                   },
                 },
-                { titulo: "CLINICA NUVEM", url: "/nuvem" },
-                { titulo: "CHAT GPT", url: "/gpt" },
+                { titulo: "CLINICA NUVEM", url: "/clinica-nuvem" },
+                { titulo: "CHAT GPT", url: "/chat-gpt" },
               ]}
             />
           </ul>

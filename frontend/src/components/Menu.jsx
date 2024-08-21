@@ -25,7 +25,15 @@ const Menu = ({ dados }) => {
             onClick={item.submenu ? () => toggleMenu(item.titulo) : null}
             aria-expanded={menuAberto === item.titulo}
           >
-            {item.titulo}
+            {item.titulo && !item.submenu && (
+              <Link to={`/${item.titulo.toLowerCase().replace(/\s+/g, "-")}`}>
+                {item.titulo}
+              </Link>
+            )}
+
+            {item.titulo && item.submenu && (
+              item.titulo
+            )}
             {item.submenu && (
               <svg
                 className="w-2.5 h-2.5 ms-2.5 ml-1"
