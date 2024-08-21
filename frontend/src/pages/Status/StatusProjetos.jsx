@@ -1,5 +1,6 @@
 import Dashboard from "../../components/Dashboard";
 import TabelaLogs from "../../components/Logs";
+import BuscaDadosLogs from "../../helpers/BuscaDadosLogs/BuscaLogs";
 
 const Status = ({dadosDashboard})=>{
     return (
@@ -10,10 +11,7 @@ const Status = ({dadosDashboard})=>{
             titulo={dadosDashboard.titulo}
           ></Dashboard>
           <TabelaLogs
-            dados={[
-    
-              
-            ]}
+            dados={BuscaDadosLogs()}
           />
         </>
       );
