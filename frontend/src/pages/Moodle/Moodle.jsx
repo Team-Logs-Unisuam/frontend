@@ -1,6 +1,6 @@
 import Dashboard from "../../components/Dashboard";
 import TabelaLogs from "../../components/Logs";
-import BuscaDadosLogs from "../../helpers/BuscaDadosLogs/BuscaLogs";
+import BuscaDadosLogs from "../../controllers/BuscaDadosLogs/BuscaLogs";
 
 const Moodle = ({dadosDashboard})=>{
     return (

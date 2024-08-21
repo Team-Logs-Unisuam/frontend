@@ -6,7 +6,7 @@ import Workalove from "../pages/Workalove/Workalove";
 import ClinicaNuvem from "../pages/Clinica_Nuvem/ClinicaNuvem";
 import Hubspot from "../pages/Hubspot/Hubspot";
 import Status from "../pages/Status/StatusProjetos";
-import BuscaDados from "../helpers/BuscaDadosDashboard/BuscaDashboard";
+import BuscaDados from "../controllers/BuscaDadosDashboard/BuscaDashboard";
 
 const Rotas = () => {
   return (
