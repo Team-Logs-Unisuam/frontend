@@ -6,35 +6,35 @@ import Workalove from "../pages/Workalove/Workalove";
 import ClinicaNuvem from "../pages/Clinica_Nuvem/ClinicaNuvem";
 import Hubspot from "../pages/Hubspot/Hubspot";
 import Status from "../pages/Status/StatusProjetos";
-import BuscaDados from "../controllers/BuscaDadosDashboard/BuscaDashboard";
+
 
 const Rotas = () => {
   return (
     <Routes>
-      <Route path="/" element={<Principal dadosDashboard={BuscaDados()} />} />
+      <Route path="/" element={<Principal/>}  />
       <Route
         path="/status-projetos"
-        element={<Status dadosDashboard={BuscaDados()} />}
+        element={<Status />}
       ></Route>
       <Route
         path="/moodle"
-        element={<Moodle dadosDashboard={BuscaDados()} />}
+        element={<Moodle />}
       ></Route>
       <Route
         path="/chat-gpt"
-        element={<ChatGpt dadosDashboard={BuscaDados()} />}
+        element={<ChatGpt />}
       ></Route>
       <Route
         path="/clinica-nuvem"
-        element={<ClinicaNuvem dadosDashboard={BuscaDados()} />}
+        element={<ClinicaNuvem />}
       ></Route>
       <Route
         path="/workalove"
-        element={<Workalove dadosDashboard={BuscaDados()} />}
+        element={<Workalove />}
       ></Route>
       <Route
         path="/hubspot"
-        element={<Hubspot dadosDashboard={BuscaDados()} />}
+        element={<Hubspot />}
       ></Route>
     </Routes>
   );

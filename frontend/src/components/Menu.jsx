@@ -4,10 +4,6 @@ import { useState } from "react";
 const Menu = ({ dados }) => {
   const [menuAberto, setMenuAberto] = useState(null);
 
-  if (!Array.isArray(dados)) {
-    return null;
-  }
-
   const toggleMenu = (titulo) => {
     setMenuAberto(menuAberto === titulo ? null : titulo);
   };

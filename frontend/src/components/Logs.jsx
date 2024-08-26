@@ -17,13 +17,19 @@ const TabelaLogs = ({dados}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {Array.isArray(dados) && dados.map((log, index) => (
-                        <tr key={index} className="even:bg-gray-100 hover:bg-gray-200">
-                            <td className="py-2 px-4 font-semibold text-wrap">{formatarValor(log.action)}</td>
-                            <td className="py-2 px-4 font-semibold text-wrap">{formatarValor(log.createdAt)}</td>
-                            <td className="truncate max-w-full font-semibold text-wrap line-clamp-1 overflow-hidden">{formatarValor(log.response)}</td>
+                    { dados.length > 0  ? (
+                        dados.map((log, index) => (
+                            <tr key={index} className="even:bg-gray-100 hover:bg-gray-200">
+                                <td className="py-2 px-4 font-semibold text-wrap">{formatarValor(log.action)}</td>
+                                <td className="py-2 px-4 font-semibold text-wrap">{formatarValor(log.createdAt)}</td>
+                                <td className="truncate max-w-full font-semibold text-wrap line-clamp-1 overflow-hidden">{formatarValor(log.response)}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="3" className="py-2 px-4 text-center text-gray-500">Nenhum log disponível</td>
                         </tr>
-                    ))}
+                    )}
                 </tbody>
             </table>
         </div>

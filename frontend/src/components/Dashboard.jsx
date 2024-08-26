@@ -1,20 +1,21 @@
 import React from "react";
 import Dados from "./Dados";
 
-const Dashboard = ({ titulo, subtitulo, qnt }) => {
+const Dashboard = ({dados}) => {
   return (
     <>
-      {titulo && subtitulo && qnt && (
+   
+      { dados.titulo && dados.subtitulo && dados.quantidade && (
         <>
           <h1 className="uppercase font-bold indent-2 text-white bg-blue-950 mb-4 py-3">
-            {titulo}
+            {dados.titulo}
           </h1>
           <div className="grid grid-cols-3 gap-4 mx-3">
-            {subtitulo.map((subtitulo, index) => (
+            {dados.subtitulo.map((subtitulo, index) => (
               <Dados
                 key={index}
                 subtitulo={subtitulo}
-                quantidade={qnt[index]}
+                quantidade={dados.quantidade[index]}
               />
             ))}
           </div>
