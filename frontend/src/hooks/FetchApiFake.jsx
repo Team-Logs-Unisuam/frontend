@@ -8,7 +8,9 @@ const useFetchApi = (tipoDados) => {
 
     fetch(url)
       .then((resposta) => resposta.json())
-      .then((dadosRecebidos) => setDados(dadosRecebidos))
+      .then((dadosRecebidos) => {
+        setDados(dadosRecebidos);
+      })
       .catch(console.error);
   }, [tipoDados]);
 
