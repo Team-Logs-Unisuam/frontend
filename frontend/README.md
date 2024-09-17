@@ -1,70 +1,285 @@
-# Getting Started with Create React App
+# Principais Comandos React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Comandos](#comandos)
+- [Create React App](#create-react-app)
+- [Componentes](#componentes)
+- [Props](#props)
+- [State](#state)
+- [Hooks](#hooks)
+- [Context API](#context-api)
+- [Ciclo de Vida](#ciclo-de-vida)
+- [Eventos](#eventos)
+- [Formulários](#formulários)
+- [Estilização](#estilização)
+- [Rotas](#rotas)
+- [Requisições HTTP](#requisições-http)
+- [Testes](#testes)
+- [Deploy](#deploy)
 
-## Available Scripts
+## Comandos
 
-In the project directory, you can run:
+- `npx create-react-app nome-do-projeto` - Cria um novo projeto React.
+- `npm start` - Inicia o servidor de desenvolvimento.
+- `npm run build` - Gera a versão de produção.
+- `npm test` - Executa os testes.
+- `npm run eject` - Ejeta o projeto do Create React App.
 
-### `npm start`
+## Create React App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O Create React App é uma ferramenta que facilita a criação de um projeto React. Ele configura o ambiente de desenvolvimento com Webpack, Babel, ESLint e outros.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Para criar um novo projeto, execute o comando:
 
-### `npm test`
+```bash
+npx create-react-app nome-do-projeto
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Componentes
 
-### `npm run build`
+Componentes são blocos de construção de uma aplicação React. Eles podem ser funções ou classes que retornam elementos React.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+// Função
+function Componente() {
+  return <h1>Olá, mundo!</h1>;
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+// Classe
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+class Componente extends React.Component {
+  render() {
+    return <h1>Olá, mundo!</h1>;
+  }
+}
+```
 
-### `npm run eject`
+## Props
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Props são propriedades que um componente pai passa para um componente filho. Elas são somente leitura e não podem ser modificadas pelo componente filho.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+function Saudacao(props) {
+  return <h1>Olá, {props.nome}!</h1>;
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+function App() {
+  return <Saudacao nome="Mundo" />;
+}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## State
 
-## Learn More
+State é um objeto que representa o estado interno de um componente. Ele pode ser modificado pelo próprio componente e é utilizado para renderizar a interface de acordo com as mudanças.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+class Contador extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { contador: 0 };
+  }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  incrementar() {
+    this.setState({ contador: this.state.contador + 1 });
+  }
 
-### Code Splitting
+  render() {
+    return (
+      <div>
+        <p>Contador: {this.state.contador}</p>
+        <button onClick={() => this.incrementar()}>Incrementar</button>
+      </div>
+    );
+  }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Hooks
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Hooks são funções que permitem adicionar funcionalidades de componentes de classe em componentes funcionais. Eles são introduzidos no React 16.8.
 
-### Making a Progressive Web App
+```jsx
+import React, { useState } from 'react';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+function Contador() {
+  const [contador, setContador] = useState(0);
 
-### Advanced Configuration
+  return (
+    <div>
+      <p>Contador: {contador}</p>
+      <button onClick={() => setContador(contador + 1)}>Incrementar</button>
+    </div>
+  );
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Context API
 
-### Deployment
+A Context API é uma forma de compartilhar dados entre componentes sem a necessidade de passar props manualmente em cada nível da árvore de componentes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```jsx
 
-### `npm run build` fails to minify
+const ThemeContext = React.createContext('light');
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+function Toolbar() {
+  return (
+    <ThemeContext.Consumer>
+      {theme => <Button theme={theme} />}
+    </ThemeContext.Consumer>
+  );
+}
+```
+
+## Ciclo de Vida
+
+Os componentes React possuem métodos de ciclo de vida que são executados em diferentes fases do ciclo de vida de um componente.
+
+```jsx
+class App extends
+React.Component {
+  componentDidMount() {
+    console.log('O componente foi montado');
+  }
+
+  componentWillUnmount() {
+    console.log('O componente foi desmontado');
+  }
+
+  render() {
+    return <h1>Olá, mundo!</h1>;
+  }
+}
+```
+
+## Eventos
+
+Eventos são ações que ocorrem em resposta a interações do usuário, como cliques, teclas pressionadas e movimentos do mouse.
+
+```jsx
+
+function Botao() {
+  function handleClick() {
+    console.log('O botão foi clicado');
+  }
+
+  return <button onClick={handleClick}>Clique aqui</button>;
+}
+```
+
+## Formulários
+
+Os formulários em React funcionam de forma semelhante aos formulários HTML, mas com algumas diferenças importantes.
+
+```jsx
+
+function Formulario() {
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log('Formulário enviado');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" />
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+```
+
+## Estilização
+
+A estilização de componentes em React pode ser feita de várias formas, como CSS puro, CSS-in-JS e bibliotecas de estilos.
+
+```jsx
+function Estilizado() {
+  return <h1 style={{ color: 'red', fontSize: '24px' }}>Estilizado</h1>;
+}
+```
+
+## Rotas
+
+As rotas em React são utilizadas para navegar entre diferentes páginas ou componentes da aplicação.
+
+```jsx
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/sobre">Sobre</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Route path="/" exact component={Home} />
+        <Route path="/sobre" component={Sobre} />
+      </div>
+    </Router>
+  );
+}
+```
+
+## Requisições HTTP
+
+As requisições HTTP em React podem ser feitas utilizando a API Fetch, Axios ou outras bibliotecas de requisições.
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+function App() {
+  const [dados, setDados] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.example.com/dados')
+      .then(response => response.json())
+      .then(data => setDados(data));
+  }, []);
+
+  return <ul>{dados.map(item => <li key={item.id}>{item.nome}</li>)}</ul>;
+}
+```
+
+## Testes
+
+Os testes em React podem ser feitos utilizando ferramentas como Jest, React Testing Library e Enzyme.
+
+```jsx
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+```
+
+## Deploy
+
+O deploy de uma aplicação React pode ser feito em diversos serviços de hospedagem, como Netlify, Vercel, GitHub Pages e AWS.
+
+Para gerar a versão de produção, execute o comando:
+
+```bash
+npm run build
+```
+
+Em seguida, faça o deploy dos arquivos gerados na pasta `build`.
+

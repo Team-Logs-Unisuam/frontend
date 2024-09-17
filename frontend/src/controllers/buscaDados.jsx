@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const useFetchApi = (tipoDados) => {
+const BuscaDados = () => {
   const [dados, setDados] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:3000/${tipoDados}`;
+    const url = `http://127.0.0.1:8000/api/dadosDashboard`;
 
     fetch(url)
       .then((resposta) => resposta.json())
@@ -12,9 +12,9 @@ const useFetchApi = (tipoDados) => {
         setDados(dadosRecebidos);
       })
       .catch(console.error);
-  }, [tipoDados]);
+  }, []);
 
   return { dados };
 };
 
-export default useFetchApi;
+export default BuscaDados;
